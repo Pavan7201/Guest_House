@@ -32,6 +32,7 @@
 .section7__subheader h1 {
   margin: 0;
   color: #555;
+  cursor: default;
 }
 
 .container11 {
@@ -45,6 +46,7 @@
 .box11 {
   overflow: hidden;
   position: relative;
+  cursor: pointer;
 }
 
 .box11:first-child {

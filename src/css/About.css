@@ -49,6 +49,7 @@
 .section3__subheader h1 {
   font-size: 3.75rem;
   margin: 0;
+  cursor: default;
 }
 
 .dark-mode .section3__header {
@@ -57,11 +58,13 @@
 
 .section3__header {
   margin: 0;
+  cursor: default;
 }
 
 .section3__description {
   margin: 0;
   text-align: justify;
+  cursor: default;
 }
 
 .address {

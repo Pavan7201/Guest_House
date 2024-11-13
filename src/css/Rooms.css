@@ -23,6 +23,7 @@
 .section4__subheader h1 {
   margin: 0;
   color: #555;
+  cursor: default;
 }
 
 .dark-mode .section4__header {
@@ -36,6 +37,7 @@
   font-style: italic;
   opacity: 0;
   transform: translateY(100px);
+  cursor: default;
 }
 
 .slick-slide .room__card {
@@ -226,6 +228,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 10rem;
 }
 
 .dark-mode .carousel-controls button {
@@ -240,7 +243,7 @@
   background-color: transparent;
   color: black !important;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   padding: 10px;
   transition: color 0.3s ease-in-out;
@@ -281,6 +284,67 @@
   color: #007bff;
   margin-left: 20px;
   border: none;
+}
+
+@media (max-width: 1024px) {
+  .section4__container {
+    padding: 50px 4rem;
+  }
+
+  .section4__subheader h1 {
+    font-size: 2.2rem;
+  }
+
+  .section4__header {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+  }
+
+  .room__card {
+    flex: 1 1 calc(33.33% - 20px);
+    margin: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(0.95);
+  }
+
+  .slick-slide .room__card,
+  .slick-center .room__card {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  .slick-dots li button::before {
+    color: gray !important;
+    opacity: 0.3 !important;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    width: 60%;
+    max-width: 150px;
+  }
+
+  .carousel-controls {
+    padding-top: 15px;
+  }
+
+  .carousel-controls button {
+    font-size: 1.8rem;
+  }
+
+  .dark-mode .section4__subheader h1 {
+    color: lightblue;
+  }
+
+  .dark-mode .section4__header {
+    color: lightyellow;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {

@@ -57,6 +57,7 @@ header {
   transition: top 0.4s ease, transform 0.4s ease;
   animation: slideDown 1s ease forwards;
   z-index: 1000;
+  cursor: pointer;
 }
 
 .header-visible {
@@ -420,6 +421,7 @@ nav {
   font-size: 1.2rem;
   margin-top: 0;
   z-index: 2;
+  cursor: none;
 }
 
 .section1_container h1 {
@@ -430,6 +432,7 @@ nav {
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;
+  cursor: none;
 }
 
 .dark-mode .section1_container h1 span {

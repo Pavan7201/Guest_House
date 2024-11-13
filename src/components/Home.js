@@ -24,18 +24,18 @@ const Home = () => {
 
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight * 0.68) {
-        setHeaderVisible(false); 
+        setHeaderVisible(false);
       } else {
-        setHeaderVisible(true); 
+        setHeaderVisible(true);
       }
     };
 
     const handleMouseMove = (event) => {
       if (event.clientY <= 90) {
-        setHeaderVisible(true); 
+        setHeaderVisible(true);
       } else {
         if (window.scrollY > window.innerHeight * 0.8) {
-          setHeaderVisible(false); 
+          setHeaderVisible(false);
         }
       }
     };
@@ -81,7 +81,7 @@ const Home = () => {
       >
         <nav ref={navbarRef}>
           <div className="logo">
-            <a href="https://wa.link/at5ion">
+            <a href="/" onclick="window.location.reload(); return false;">
               <span>Kingsukh</span>
               <span>Guest House</span>
             </a>

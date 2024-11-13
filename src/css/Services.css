@@ -33,6 +33,7 @@
 .section5__subheader h1 {
   margin: 0;
   color: #555;
+  cursor: default;
 }
 
 .section5__header {
@@ -42,6 +43,7 @@
   margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
+  cursor: default;
 }
 
 .dark-mode .section5__header {
@@ -65,6 +67,7 @@
   margin: 0.93rem 0;
   opacity: 0;
   transform: translateY(20px);
+  cursor: default;
 }
 
 .service__list li:nth-child(1) span {

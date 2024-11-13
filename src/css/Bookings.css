@@ -56,6 +56,11 @@
   font-weight: bold;
 }
 
+#checkIn,
+#checkOut {
+  cursor: pointer;
+}
+
 .input__group div {
   flex: 1;
   margin: 0 0.5rem;

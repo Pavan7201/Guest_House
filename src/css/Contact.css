@@ -75,6 +75,7 @@ section {
   font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
+  cursor: default;
 }
 
 .container .contactInfo ul.info {
@@ -184,6 +185,7 @@ section {
   font-size: 2.5rem;
   text-align: center;
   font-weight: 600;
+  cursor: default;
 }
 
 .container .contactForm .formBox {

@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 80%;
+  cursor: default;
 }
 
 .banner__card {
@@ -71,19 +72,13 @@
   animation: bounce 1.5s infinite;
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @media (max-width: 1024px) {
   .section6__container {
     padding: 2rem 3rem;
+  }
+
+  .slick-track {
+    margin-bottom: 0;
   }
 
   .banner__card {
@@ -139,6 +134,16 @@
 
   .banner__card h1 {
     font-size: 2rem;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 

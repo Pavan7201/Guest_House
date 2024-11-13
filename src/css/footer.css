@@ -53,11 +53,13 @@
   margin: 1rem 0;
   font-size: 0.9rem;
   line-height: 1.5;
+  cursor: default;
 }
 
 .footer__links {
   list-style: none;
   padding: 0;
+  cursor: default;
 }
 
 .footer__links li {
