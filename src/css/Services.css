@@ -132,6 +132,10 @@
 }
 
 @media (max-width: 480px) {
+  #services {
+    padding: 1.5rem 0;
+  }
+
   .section5__subheader h1 {
     font-size: 1.5rem;
   }

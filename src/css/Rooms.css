@@ -329,7 +329,7 @@
 
 @media (max-width: 480px) {
   .section4__container {
-    padding: 1rem;
+    padding: 1rem !important;
   }
 
   .room__card {

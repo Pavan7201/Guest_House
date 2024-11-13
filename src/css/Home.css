@@ -76,7 +76,7 @@ header.scrolled {
 }
 
 .dark-mode nav {
-  background: rgba(0, 0, 0, 0.315);
+  background: rgba(0, 0, 0, 0.715);
   box-shadow: 0 4px 30px rgba(238, 130, 238, 0.404);
   backdrop-filter: blur(3.4px);
   -webkit-backdrop-filter: blur(3.1px);
@@ -90,7 +90,7 @@ nav {
   align-items: center;
   margin: 0rem 1rem;
   width: 70rem;
-  background: rgba(16, 30, 189, 0.31);
+  background: rgba(35, 50, 214, 0.71);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.4px);
   -webkit-backdrop-filter: blur(3.1px);
@@ -231,6 +231,14 @@ nav {
     right: 0;
     transition: top 0.3s ease;
     z-index: 1000;
+  }
+
+  .dark-mode nav {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 2px solid rgba(238, 130, 238, 0.253);
   }
 
   .header-visible {
