@@ -1,0 +1,438 @@
+* {
+  box-sizing: border-box;
+}
+
+.section4__container {
+  padding: 60px 5rem;
+  text-align: center;
+}
+
+.section4__subheader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.dark-mode .section4__subheader h1 {
+  color: violet;
+}
+
+.section4__subheader h1 {
+  margin: 0;
+  color: #555;
+}
+
+.dark-mode .section4__header {
+  color: yellow;
+}
+
+.section4__header {
+  font-size: 1.375rem;
+  margin-bottom: 20px;
+  color: #444;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.slick-slide .room__card {
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.slick-center .room__card {
+  transform: scale(1);
+  z-index: 1;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .slick-center .room__card {
+  box-shadow: 0 8px 30px rgba(238, 130, 238, 0.596);
+}
+
+.slick-slide {
+  padding: 0 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.slick-track {
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.slick-dots {
+  margin-top: 5px;
+  margin-bottom: 0;
+  bottom: 10px;
+}
+
+.dark-mode .slick-dots li button::before {
+  color: gray !important;
+  opacity: 0.2 !important;
+}
+
+.dark-mode .slick-dots li.slick-active button::before {
+  opacity: 1 !important;
+  color: violet !important;
+}
+
+.slick-dots li button::before {
+  color: gray !important;
+  opacity: 0.5 !important;
+}
+
+.slick-dots li.slick-active button::before {
+  opacity: 1 !important;
+  color: black !important;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+.room__card {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.room__card__image {
+  position: relative;
+}
+
+.room__card__icons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.dark-mode .room__card__icons span {
+  background: black;
+}
+
+.room__card__icons span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.room__card__icons span:first-child {
+  color: #f472b6;
+}
+
+.room__card__icons span:nth-child(2) {
+  color: #c084fc;
+}
+
+.room__card__icons span:nth-child(3) {
+  color: #60a5fa;
+}
+
+.dark-mode .room__card__icons span:hover {
+  background: black;
+}
+
+.room__card__icons span:hover {
+  background: rgb(3, 3, 3);
+  transform: scale(1.1);
+}
+
+.dark-mode .room__card__image img {
+  border-bottom: 3px solid yellow;
+}
+
+.room__card__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 3px solid #007bff;
+}
+
+.room__card__details {
+  padding: 30px;
+}
+
+.dark-mode .room__card__details h3 {
+  color: white;
+}
+
+.room__card__details h3 {
+  font-size: 1.125rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.room__card__details p {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.dark-mode .room__card__details h5 {
+  color: violet;
+}
+
+.room__card__details h5 {
+  font-size: 1rem;
+  color: #007bff;
+  margin: 10px 0;
+}
+
+.dark-mode .btn {
+  background-color: violet;
+  border: 1px solid violet;
+  color: black;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  width: 40%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dark-mode .btn:hover {
+  background-color: black;
+  border: 1px solid violet;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dark-mode .carousel-controls button {
+  color: yellow !important;
+}
+
+.dark-mode .carousel-controls button:hover {
+  color: violet !important;
+}
+
+.carousel-controls button {
+  background-color: transparent;
+  color: black !important;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.dark-mode .carousel-controls button:hover {
+  color: violet;
+}
+
+.carousel-controls button:hover {
+  color: blue !important;
+}
+
+.carousel-controls button:focus {
+  outline: none;
+}
+
+.dark-mode .carousel-controls button:first-child,
+.dark-mode .carousel-controls button:last-child {
+  color: white;
+}
+
+.dark-mode .carousel-controls button:first-child:hover {
+  color: violet;
+}
+
+.carousel-controls button:first-child {
+  color: #007bff;
+  margin-right: 20px;
+  border: none;
+}
+
+.dark-mode .carousel-controls button:last-child:hover {
+  color: violet;
+}
+
+.carousel-controls button:last-child {
+  color: #007bff;
+  margin-left: 20px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .room__card {
+    flex: 1 1 calc(50% - 20px);
+    margin: 0;
+  }
+
+  .section4__container {
+    padding: 30px;
+  }
+
+  .section4__subheader h1 {
+    font-size: 2rem;
+  }
+
+  .section4__header {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .slick-slide .room__card,
+  .slick-center .room__card {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  .slick-track {
+    margin: 0 !important;
+  }
+
+  .custom-slider {
+    max-height: 50% !important;
+    margin: 0 auto;
+  }
+
+  .btn {
+    padding: 8px 0px;
+    font-size: 0.7rem;
+    width: 100%;
+    max-width: 100px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .section4__container {
+    padding: 1rem;
+  }
+
+  .room__card {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  .room__card__icons {
+    gap: 5px;
+  }
+
+  .room__card__icons span {
+    font-size: 1.3rem;
+    width: 30px;
+    height: 30px;
+  }
+
+  .room__card__details {
+    padding-bottom: 0;
+  }
+
+  .carousel-controls {
+    margin: 0;
+    padding-top: 2rem;
+    justify-content: space-evenly;
+  }
+
+  .carousel-controls button {
+    padding: 0;
+    font-size: 1.7rem;
+  }
+
+  .section4__subheader h1 {
+    font-size: 1.125rem;
+  }
+
+  .section4__header {
+    font-size: 0.8rem;
+  }
+
+  .slick-current {
+    padding: 0 24px 1.5rem 24px;
+  }
+
+  .room__card__details {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+
+  .room__card__details h3 {
+    font-size: 1rem;
+  }
+
+  .room__card__details p {
+    font-size: 0.75rem;
+  }
+
+  .btn {
+    padding: 8px 0px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 100px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFromCenterToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideFromCenterToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}

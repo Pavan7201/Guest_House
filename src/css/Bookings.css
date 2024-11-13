@@ -1,0 +1,160 @@
+.section2__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-bottom: 2rem;
+  animation: slideUp 3s ease-in-out;
+}
+
+.booking__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dark-mode .input__group {
+  background: rgba(238, 130, 238, 0.37);
+  box-shadow: 0 4px 30px rgba(238, 235, 235, 0.226);
+  border: 1px solid violet;
+}
+
+.input__group {
+  margin: 0;
+  width: 70vw;
+  max-width: 180vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
+  border-radius: 0 0 3rem 3rem;
+  background: rgba(16, 30, 189, 0.31);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.1px);
+  border: 1px solid rgba(16, 30, 189, 0.25);
+}
+
+.dark-mode .checkIn,
+.dark-mode .checkOut {
+  color: white;
+}
+
+.checkIn,
+.checkOut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  color: blue;
+  flex: 1;
+}
+
+.input__group label {
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+}
+
+.input__group div {
+  flex: 1;
+  margin: 0 0.5rem;
+  max-width: 150px;
+}
+
+.input__group input {
+  width: 80%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dark-mode .section2__btn {
+  border: 1px solid violet;
+  background-color: violet;
+}
+
+.section2__btn {
+  width: 100%;
+  color: white;
+  background-color: #007bff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 0.75rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  max-width: 300px;
+}
+
+.section2__btn:hover {
+  background-color: rgb(7, 7, 12);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .input__group {
+    width: 70vw;
+  }
+  .input__group label {
+    font-size: 0.7rem;
+  }
+  .input__group {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .section2__btn {
+    width: 80%;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .input__group {
+    padding: 0.5rem;
+    gap: 0;
+    width: 100vw;
+    border-radius: 0;
+  }
+
+  .input__group label {
+    font-size: 0.8rem;
+    text-align: left;
+    width: 85%;
+    margin-bottom: 0;
+  }
+
+  .input__group div {
+    margin: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .section2__btn {
+    width: 100%;
+    padding: 0.7rem 0rem !important;
+    font-size: 0.7rem;
+  }
+
+  .input__group input {
+    font-size: 0.7rem;
+    width: 70%;
+    padding: 0.5rem;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
