@@ -40,11 +40,14 @@ const Gallery = () => {
       { threshold: 0.2 }
     );
 
-    if (galleryRef.current) {
-      galleryObserver.observe(galleryRef.current);
+    const currentGalleryRef = galleryRef.current;
+    const currentImageRefs = imageRefs.current;
+
+    if (currentGalleryRef) {
+      galleryObserver.observe(currentGalleryRef);
     }
 
-    imageRefs.current.forEach((image, index) => {
+    currentImageRefs.forEach((image, index) => {
       if (image) {
         image.classList.add(`delay-${index}`);
         galleryObserver.observe(image);
@@ -52,8 +55,8 @@ const Gallery = () => {
     });
 
     return () => {
-      if (galleryRef.current) galleryObserver.unobserve(galleryRef.current);
-      imageRefs.current.forEach((image) => {
+      if (currentGalleryRef) galleryObserver.unobserve(currentGalleryRef);
+      currentImageRefs.forEach((image) => {
         if (image) galleryObserver.unobserve(image);
       });
     };
