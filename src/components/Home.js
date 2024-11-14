@@ -14,62 +14,90 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("theme") === "dark" ? true : false // Default to light mode if no theme saved
+  );
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [isHeaderVisible, setHeaderVisible] = useState(true);
+  const [activeSection, setActiveSection] = useState("home");
   const navbarRef = useRef(null);
 
   useEffect(() => {
+    // Scroll to home section on load
     scroll.scrollTo("home", { duration: 0 });
 
+    // Update the body class based on theme
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+
+    // Handle scroll for header visibility and active section detection
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.68) {
-        setHeaderVisible(false);
-      } else {
-        setHeaderVisible(true);
-      }
+      setHeaderVisible(window.scrollY <= window.innerHeight * 0.68);
+      const sections = [
+        "home",
+        "about",
+        "services",
+        "rooms",
+        "gallery",
+        "contact",
+      ];
+      let currentSection = "home";
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const sectionTop = rect.top;
+          const sectionBottom = rect.bottom;
+          const viewportHeight = window.innerHeight;
+
+          if (
+            sectionTop <= viewportHeight * 0.6 &&
+            sectionBottom >= viewportHeight * 0.4
+          ) {
+            currentSection = section;
+          }
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
     const handleMouseMove = (event) => {
-      if (event.clientY <= 90) {
+      if (event.clientY <= 90 || window.scrollY <= window.innerHeight * 0.8) {
         setHeaderVisible(true);
       } else {
-        if (window.scrollY > window.innerHeight * 0.8) {
-          setHeaderVisible(false);
-        }
+        setHeaderVisible(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
+    // Update layout on window resize for mobile detection
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
     };
     window.addEventListener("resize", handleResize);
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.body.classList.add("dark-mode");
-    }
-
+    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
-      document.body.classList.add("dark-mode");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.remove("dark-mode");
-      localStorage.setItem("theme", "light");
-    }
+    document.body.classList.toggle("dark-mode");
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("theme", newMode ? "dark" : "light"); // Save theme preference in localStorage
+      return newMode;
+    });
   };
 
   return (
@@ -81,7 +109,7 @@ const Home = () => {
       >
         <nav ref={navbarRef}>
           <div className="logo">
-            <a href="/" onclick="window.location.reload(); return false;">
+            <a href="/" onClick={(e) => e.preventDefault()}>
               <span>Kingsukh</span>
               <span>Guest House</span>
             </a>
@@ -89,42 +117,24 @@ const Home = () => {
           {!isMobile && (
             <div className="nav_links">
               <ul>
-                <li className="home">
-                  <Link to="home" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faHome} className="icon" />
-                    <span className="link-text">Home</span>
-                  </Link>
-                </li>
-                <li className="home">
-                  <Link to="about" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faInfoCircle} className="icon" />
-                    <span className="link-text">About</span>
-                  </Link>
-                </li>
-                <li className="home">
-                  <Link to="services" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faConciergeBell} className="icon" />
-                    <span className="link-text">Services</span>
-                  </Link>
-                </li>
-                <li className="home">
-                  <Link to="rooms" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faBed} className="icon" />
-                    <span className="link-text">Rooms</span>
-                  </Link>
-                </li>
-                <li className="home">
-                  <Link to="gallery" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faImages} className="icon" />
-                    <span className="link-text">Gallery</span>
-                  </Link>
-                </li>
-                <li className="home">
-                  <Link to="contact" smooth={true} duration={500}>
-                    <FontAwesomeIcon icon={faEnvelope} className="icon" />
-                    <span className="link-text">Contact</span>
-                  </Link>
-                </li>
+                {[
+                  { name: "Home", icon: faHome, to: "home" },
+                  { name: "About", icon: faInfoCircle, to: "about" },
+                  { name: "Services", icon: faConciergeBell, to: "services" },
+                  { name: "Rooms", icon: faBed, to: "rooms" },
+                  { name: "Gallery", icon: faImages, to: "gallery" },
+                  { name: "Contact", icon: faEnvelope, to: "contact" },
+                ].map(({ name, icon, to }) => (
+                  <li
+                    key={name}
+                    className={activeSection === to ? "active-link" : ""}
+                  >
+                    <Link to={to} smooth={true} duration={500}>
+                      <FontAwesomeIcon icon={icon} className="icon" />
+                      <span className="link-text">{name}</span>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
@@ -136,11 +146,10 @@ const Home = () => {
                   className={`slider ${isDarkMode ? "dark" : "light"}`}
                 ></div>
               </div>
-              {isDarkMode ? (
-                <FontAwesomeIcon icon={faSun} className="icon sun-icon" />
-              ) : (
-                <FontAwesomeIcon icon={faMoon} className="icon moon-icon" />
-              )}
+              <FontAwesomeIcon
+                icon={isDarkMode ? faSun : faMoon}
+                className="icon"
+              />
             </div>
             <a href="https://wa.link/at5ion">
               <button>BOOK NOW</button>
@@ -160,45 +169,28 @@ const Home = () => {
 
       {isMobile && (
         <footer className="footer-icons">
-          <Link to="home" smooth={true} duration={500} className="footer-link">
-            <FontAwesomeIcon icon={faHome} className="icon" />
-            <span className="icon-name">Home</span>
-          </Link>
-          <Link to="about" smooth={true} duration={500} className="footer-link">
-            <FontAwesomeIcon icon={faInfoCircle} className="icon" />
-            <span className="icon-name">About</span>
-          </Link>
-          <Link
-            to="services"
-            smooth={true}
-            duration={500}
-            className="footer-link"
-          >
-            <FontAwesomeIcon icon={faConciergeBell} className="icon" />
-            <span className="icon-name">Services</span>
-          </Link>
-          <Link to="rooms" smooth={true} duration={500} className="footer-link">
-            <FontAwesomeIcon icon={faBed} className="icon" />
-            <span className="icon-name">Rooms</span>
-          </Link>
-          <Link
-            to="gallery"
-            smooth={true}
-            duration={500}
-            className="footer-link"
-          >
-            <FontAwesomeIcon icon={faImages} className="icon" />
-            <span className="icon-name">Gallery</span>
-          </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            className="footer-link"
-          >
-            <FontAwesomeIcon icon={faEnvelope} className="icon" />
-            <span className="icon-name">Contact</span>
-          </Link>
+          {[
+            { name: "Home", icon: faHome, to: "home" },
+            { name: "About", icon: faInfoCircle, to: "about" },
+            { name: "Services", icon: faConciergeBell, to: "services" },
+            { name: "Rooms", icon: faBed, to: "rooms" },
+            { name: "Gallery", icon: faImages, to: "gallery" },
+            { name: "Contact", icon: faEnvelope, to: "contact" },
+          ].map(({ name, icon, to }) => (
+            <Link
+              key={name}
+              to={to}
+              smooth={true}
+              duration={500}
+              className={`footer-link ${
+                activeSection === to ? "active-link" : ""
+              }`}
+              activeClass="active-link"
+            >
+              <FontAwesomeIcon icon={icon} className="icon" />
+              <span className="icon-name">{name}</span>
+            </Link>
+          ))}
         </footer>
       )}
     </div>

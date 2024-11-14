@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import smallRoom from "../assets/small.jpg";
@@ -9,6 +9,32 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Rooms = () => {
   const sliderRef = useRef(null);
+
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const [activeSlide, setActiveSlide] = useState(2);
+
+  const toggleDescription = (id) => {
+    setExpandedDescriptions((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
+  const resetDescriptions = (index) => {
+    setActiveSlide(index);
+
+    setExpandedDescriptions((prevState) => {
+      const newDescriptions = { ...prevState };
+
+      Object.keys(newDescriptions).forEach((key) => {
+        if (parseInt(key) !== rooms[index].id) {
+          newDescriptions[key] = false;
+        }
+      });
+
+      return newDescriptions;
+    });
+  };
 
   useEffect(() => {
     const subheader = document.querySelector(".section4__subheader");
@@ -42,7 +68,7 @@ const Rooms = () => {
       title: "Cozy Haven Room",
       description:
         "Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.",
-      price: "₹1000/night",
+      price: "₹ 1000/night",
       link: "https://wa.link/at5ion",
     },
     {
@@ -51,7 +77,7 @@ const Rooms = () => {
       title: "Spacious Serenity Suite",
       description:
         "Indulge in luxury and ample space in our Spacious Serenity Suite, where tranquility meets roomy elegance.",
-      price: "₹1500/night",
+      price: "₹ 1500/night",
       link: "https://wa.link/at5ion",
     },
     {
@@ -60,7 +86,7 @@ const Rooms = () => {
       title: "Cozy Haven Room",
       description:
         "Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.",
-      price: "₹1000/night",
+      price: "₹ 1000/night",
       link: "https://wa.link/at5ion",
     },
     {
@@ -69,7 +95,7 @@ const Rooms = () => {
       title: "Spacious Serenity Suite",
       description:
         "Indulge in luxury and ample space in our Spacious Serenity Suite, where tranquility meets roomy elegance.",
-      price: "₹1500/night",
+      price: "₹ 1500/night",
       link: "https://wa.link/at5ion",
     },
     {
@@ -78,7 +104,7 @@ const Rooms = () => {
       title: "Relaxing Retreat Room",
       description:
         "Unwind in our Relaxing Retreat Room, designed for the ultimate relaxation experience.",
-      price: "₹1200/night",
+      price: "₹ 1200/night",
       link: "https://wa.link/at5ion",
     },
   ];
@@ -93,6 +119,7 @@ const Rooms = () => {
     centerPadding: "0",
     focusOnSelect: true,
     initialSlide: 2,
+    afterChange: resetDescriptions,
     responsive: [
       {
         breakpoint: 1024,
@@ -150,7 +177,18 @@ const Rooms = () => {
             </div>
             <div className="room__card__details">
               <h3>{room.title}</h3>
-              <p>{room.description}</p>
+              <p className={expandedDescriptions[room.id] ? "show-full" : ""}>
+                {expandedDescriptions[room.id]
+                  ? room.description
+                  : `${room.description.slice(0, 50)}... `}
+
+                <span
+                  className="toggle-text"
+                  onClick={() => toggleDescription(room.id)}
+                >
+                  {expandedDescriptions[room.id] ? " Show less" : " Show more"}
+                </span>
+              </p>
               <h5>
                 <span>{room.price}</span>
               </h5>

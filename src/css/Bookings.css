@@ -4,7 +4,7 @@
   align-items: center;
   width: 100vw;
   margin-bottom: 2rem;
-  animation: slideUp 3s ease-in-out;
+  animation: slideUp 2s ease-in-out;
 }
 
 .booking__form {

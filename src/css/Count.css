@@ -1,5 +1,5 @@
 .section6__container {
-  padding: 2rem 5rem;
+  padding: 3rem 3rem !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 80%;
+  width: 70%;
   cursor: default;
 }
 
@@ -74,7 +74,7 @@
 
 @media (max-width: 1024px) {
   .section6__container {
-    padding: 2rem 3rem;
+    padding: 3rem 3rem !important;
   }
 
   .slick-track {

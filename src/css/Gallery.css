@@ -133,20 +133,24 @@
   opacity: 1;
 }
 
-.fadeIn.delay-1 {
+.fadeIn.delay-0 {
   transition-delay: 1s;
 }
 
+.fadeIn.delay-1 {
+  transition-delay: 1.4s;
+}
+
 .fadeIn.delay-2 {
-  transition-delay: 1.5s;
+  transition-delay: 1.8s;
 }
 
 .fadeIn.delay-3 {
-  transition-delay: 2s;
+  transition-delay: 2.2s;
 }
 
 .fadeIn.delay-4 {
-  transition-delay: 2.5s;
+  transition-delay: 2.6s;
 }
 
 .fadeIn.delay-5 {
@@ -154,21 +158,17 @@
 }
 
 .fadeIn.delay-6 {
-  transition-delay: 3.5s;
+  transition-delay: 3.4s;
 }
 
 .fadeIn.delay-7 {
-  transition-delay: 4s;
+  transition-delay: 1.4s;
 }
 
 .fadeIn.delay-8 {
-  transition-delay: 4.5s;
+  transition-delay: 1.8s;
 }
 
 .fadeIn.delay-9 {
-  transition-delay: 5s;
-}
-
-.fadeIn.delay-10 {
-  transition-delay: 5.5s;
+  transition-delay: 2.2s;
 }

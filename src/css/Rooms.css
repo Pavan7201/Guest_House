@@ -168,7 +168,7 @@
 }
 
 .room__card__details {
-  padding: 30px;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
 }
 
 .dark-mode .room__card__details h3 {
@@ -184,6 +184,26 @@
 .room__card__details p {
   font-size: 0.875rem;
   color: #666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease;
+}
+
+.show-full {
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+.dark-mode .toggle-text {
+  color: yellow;
+}
+
+.toggle-text {
+  color: blue;
+  cursor: pointer;
 }
 
 .dark-mode .room__card__details h5 {
