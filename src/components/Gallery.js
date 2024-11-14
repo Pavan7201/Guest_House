@@ -61,12 +61,10 @@ const Gallery = () => {
 
   return (
     <section id="gallery" ref={galleryRef} className="fadeInUp">
-      <div className="about_content">
-        <div className="section7__subheader">
-          <div className="line"></div>
-          <h1>GALLERY</h1>
-          <div className="line"></div>
-        </div>
+      <div className="section7__subheader">
+        <div className="line"></div>
+        <h1>GALLERY</h1>
+        <div className="line"></div>
       </div>
       <br />
       <div className="container11">

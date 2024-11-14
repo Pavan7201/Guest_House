@@ -6,15 +6,6 @@
   background-color: yellow;
 }
 
-.about_content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  margin: 0;
-}
-
 .line {
   width: 6.25rem;
   height: 0.125rem;
@@ -101,6 +92,10 @@
 }
 
 @media (max-width: 480px) {
+  .container11 {
+    min-height: 400px;
+  }
+
   .section7__subheader h1 {
     font-size: 1.5rem;
   }
