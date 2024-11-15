@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# KingSukh Guest House
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+KingSukh Guest House is an interactive and user-friendly web project developed as part of an internship at InnoBytr Services. This project provides a visually appealing platform to showcase the guest house’s amenities and services, allowing users to explore and book rooms with ease.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Navigation**: Smooth, scroll-based navigation across sections (Home, About, Services, Rooms, Gallery, and Contact).
+- **Dark Mode Toggle**: Switch between dark and light modes for a customizable viewing experience.
+- **Room Booking**: Includes check-in and check-out date selectors for booking rooms, an extra feature beyond the project requirements.
+- **Responsive Design**: Optimized for various screen sizes, providing seamless interaction on desktops, tablets, and mobile devices.
+- **Interactive Animations**: Smooth fade and scroll animations to enhance user experience.
+- **Contact Information**: Easy access to guest house contact details and a form for inquiries.
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: HTML5, CSS3, JavaScript, ReactJS
+- **Styling and Animations**: CSS3, JavaScript animations for smooth transitions
+- **Version Control**: Git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone this repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/Pavan7201/guest_house.git
+   ```
 
-### `npm run build`
+2. Install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+KingSukh Guest House/
+├── node_modules/
+├── public/
+|   ├── guest-house.ico      # Icon for HTMl file
+│   ├── index.html           # Main HTML file
+│   ├── manifest.json
+|   └── robots.txt
+│
+├── src/
+|   ├── assets/              # Static assets like images
+│   ├── components/          # Reusable React components
+│   ├── css/                 # CSS files (header.css, footer.css, etc.)
+|   ├── images/              # Static images
+|   ├── App.css              # Styles for Main React component
+│   ├── App.js               # Main React component
+|   ├── App.test.js
+│   ├── index.js             # Entry point for React
+│
+├── package.json             # Project metadata and dependencies
+└── README.md                # Project documentation
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Key Design Highlights
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Animations**:
+  - Scroll-triggered animations across sections for a lively experience.
+  - Room descriptions and gallery images animate on scroll for added interactivity.
+- **Dark Mode**:
+  - Toggle beside the "BOOK NOW" button to switch between dark and light themes.
+- **Responsive Layout**:
+  - Adjustments for various screen sizes, including mobile-friendly layout.
+  - Enhanced navigation experience with footer icons replicating navbar links on mobile.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Future Enhancements
 
-## Learn More
+- Backend integration for dynamic room availability.
+- Booking confirmation and payment integration.
+- Additional animations and visual effects for enhanced interactivity.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### Code Splitting
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Internship**: InnoBytr Services
+- **Developer**: Pavan Kumar Sahu
+- **Technologies**: ReactJS, HTML5, CSS3, JavaScript
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For any queries or contributions, feel free to reach out:  
+**Email**: pavankumarsahu2000@gmail.com  
+**LinkedIn**: [Pavan Kumar Sahu's LinkedIn](https://www.linkedin.com/in/pavan-kumar-sahu-6554381a2)  
+**Portfolio**: [https://pavan7201.github.io/Portfolio/](https://pavan7201.github.io/Portfolio/)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to customize or expand as needed!
