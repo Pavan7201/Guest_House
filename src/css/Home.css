@@ -115,12 +115,10 @@ nav {
 
 .dark-mode .active-link {
   font-weight: bold;
-  border-bottom: 2px solid violet;
 }
 
 .active-link {
   font-weight: bold;
-  border-bottom: 2px solid black;
 }
 
 .dark-mode .active-link .link-text {
