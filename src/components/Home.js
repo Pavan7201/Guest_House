@@ -15,7 +15,7 @@ import {
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem("theme") === "dark" ? true : false // Default to light mode if no theme saved
+    localStorage.getItem("theme") === "dark" ? true : false
   );
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [isHeaderVisible, setHeaderVisible] = useState(true);
@@ -23,17 +23,16 @@ const Home = () => {
   const navbarRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to home section on load
     scroll.scrollTo("home", { duration: 0 });
+  }, []);
 
-    // Update the body class based on theme
+  useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-mode");
     } else {
       document.body.classList.remove("dark-mode");
     }
 
-    // Handle scroll for header visibility and active section detection
     const handleScroll = () => {
       setHeaderVisible(window.scrollY <= window.innerHeight * 0.68);
       const sections = [
@@ -77,25 +76,22 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Update layout on window resize for mobile detection
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
     };
     window.addEventListener("resize", handleResize);
-
-    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
     };
-  }, [isDarkMode]);
+  });
 
   const toggleDarkMode = () => {
     document.body.classList.toggle("dark-mode");
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
-      localStorage.setItem("theme", newMode ? "dark" : "light"); // Save theme preference in localStorage
+      localStorage.setItem("theme", newMode ? "dark" : "light");
       return newMode;
     });
   };
@@ -109,7 +105,7 @@ const Home = () => {
       >
         <nav ref={navbarRef}>
           <div className="logo">
-            <a href="/" onClick={(e) => e.preventDefault()}>
+            <a href="#home" onClick={() => window.location.reload()}>
               <span>Kingsukh</span>
               <span>Guest House</span>
             </a>
