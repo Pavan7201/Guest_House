@@ -19,9 +19,6 @@ const Footer = () => {
             our curated selection of hotels, making every moment of your getaway
             truly extraordinary.
           </p>
-          {/* <a href="https://wa.link/at5ion">
-            <button className="btn">BOOK NOW</button>
-          </a> */}
         </div>
         <div className="footer__col">
           <h4>QUICK LINKS</h4>

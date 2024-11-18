@@ -1,3 +1,4 @@
+// Home.js
 import React, { useEffect, useState, useRef } from "react";
 import "../css/Home.css";
 import { Link, animateScroll as scroll } from "react-scroll";
@@ -12,6 +13,7 @@ import {
   faImages,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import Book from "./Book";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -20,6 +22,7 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
   const [isHeaderVisible, setHeaderVisible] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
+  const [isBookOpen, setIsBookOpen] = useState(false);
   const navbarRef = useRef(null);
 
   useEffect(() => {
@@ -96,6 +99,15 @@ const Home = () => {
     });
   };
 
+  const handleBookNowClick = () => {
+    scroll.scrollTo("rooms", { duration: 500 });
+    setIsBookOpen(true);
+  };
+
+  const closeBook = () => {
+    setIsBookOpen(false);
+  };
+
   return (
     <div>
       <header
@@ -114,19 +126,18 @@ const Home = () => {
             <div className="nav_links">
               <ul>
                 {[
-                  { name: "Home", icon: faHome, to: "home" },
-                  { name: "About", icon: faInfoCircle, to: "about" },
-                  { name: "Services", icon: faConciergeBell, to: "services" },
-                  { name: "Rooms", icon: faBed, to: "rooms" },
-                  { name: "Gallery", icon: faImages, to: "gallery" },
-                  { name: "Contact", icon: faEnvelope, to: "contact" },
-                ].map(({ name, icon, to }) => (
+                  { name: "Home", to: "home" },
+                  { name: "About", to: "about" },
+                  { name: "Services", to: "services" },
+                  { name: "Rooms", to: "rooms" },
+                  { name: "Gallery", to: "gallery" },
+                  { name: "Contact", to: "contact" },
+                ].map(({ name, to }) => (
                   <li
                     key={name}
                     className={activeSection === to ? "active-link" : ""}
                   >
                     <Link to={to} smooth={true} duration={500}>
-                      <FontAwesomeIcon icon={icon} className="icon" />
                       <span className="link-text">{name}</span>
                     </Link>
                   </li>
@@ -147,9 +158,7 @@ const Home = () => {
                 className="icon"
               />
             </div>
-            <a href="https://wa.link/at5ion">
-              <button>BOOK NOW</button>
-            </a>
+            <button onClick={handleBookNowClick}>BOOK NOW</button>
           </div>
         </nav>
       </header>
@@ -181,7 +190,6 @@ const Home = () => {
               className={`footer-link ${
                 activeSection === to ? "active-link" : ""
               }`}
-              activeClass="active-link"
             >
               <FontAwesomeIcon icon={icon} className="icon" />
               <span className="icon-name">{name}</span>
@@ -189,6 +197,7 @@ const Home = () => {
           ))}
         </footer>
       )}
+      <Book isOpen={isBookOpen} closeBook={closeBook} />
     </div>
   );
 };

@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .dark-mode .input__group {
@@ -21,14 +22,14 @@
 
 .input__group {
   margin: 0;
-  width: 70vw;
-  max-width: 180vw;
+  width: 100%;
+  max-width: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  gap: 2rem;
-  border-radius: 0 0 3rem 3rem;
+  gap: 4rem;
+  border-radius: 0 0 50px 50px;
   background: rgba(16, 30, 189, 0.31);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.4px);
@@ -45,15 +46,17 @@
 .checkOut {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   text-align: left;
   color: blue;
   flex: 1;
+  max-width: 150px;
 }
 
 .input__group label {
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.5rem;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 
 #checkIn,
@@ -68,10 +71,11 @@
 }
 
 .input__group input {
-  width: 80%;
+  width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 0.9rem;
 }
 
 .dark-mode .section2__btn {
@@ -79,20 +83,51 @@
   background-color: violet;
 }
 
+.input__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dark-mode .whatsapp__btn {
+  color: white;
+}
+
+.whatsapp__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  color: black;
+  font-size: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp__btn:hover {
+  background-color: #25d366;
+  color: white;
+}
+
 .section2__btn {
   width: 100%;
   color: white;
   background-color: #007bff;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 600;
   cursor: pointer;
   outline: none;
   border-radius: 5px;
   border: none;
-  padding: 0.75rem;
+  padding: 1rem;
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
-  max-width: 300px;
+  margin: 0;
 }
 
 .section2__btn:hover {

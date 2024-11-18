@@ -46,6 +46,10 @@ const About = () => {
     };
   }, []);
 
+  const handleBookNowClick = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <>
       <div className="section3__subheader">
@@ -80,9 +84,9 @@ const About = () => {
             <a href="tel:+919007062180">Contact us: +91 9007062180</a>
           </p>
           <div className="about__btn">
-            <a href="https://wa.link/at5ion">
-              <button>BOOK NOW</button>
-            </a>
+            <button href="#" onClick={handleBookNowClick}>
+              BOOK NOW
+            </button>
           </div>
         </div>
       </section>

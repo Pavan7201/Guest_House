@@ -5,12 +5,12 @@ const Bookings = () => {
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
 
-  const handleBooking = () => {
+  const handleWhatsAppBooking = () => {
     const message = `Check-in: ${checkInDate}, Check-out: ${checkOutDate}`;
     const whatsappLink = `https://wa.link/at5ion?text=${encodeURIComponent(
       message
     )}`;
-    window.location.href = whatsappLink;
+    window.open(whatsappLink, "_blank");
   };
 
   return (
@@ -36,8 +36,9 @@ const Bookings = () => {
             />
           </div>
           <div className="input__btn">
-            <button className="section2__btn" onClick={handleBooking}>
-              BOOK NOW
+            <button className="section2__btn">BOOK NOW</button>
+            <button className="whatsapp__btn" onClick={handleWhatsAppBooking}>
+              <i className="fa-brands fa-whatsapp"></i>
             </button>
           </div>
         </div>
