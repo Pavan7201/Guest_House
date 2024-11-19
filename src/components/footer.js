@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/footer.css";
 import Facebook from "../assets/facebook.png";
 import Instagram from "../assets/instagram.png";
 import Youtube from "../assets/youtube.png";
 import Twitter from "../assets/twitter.png";
+
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition >= pageHeight - 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <footer className="footer">
       <div className="section__container footer__container">
@@ -96,6 +122,11 @@ const Footer = () => {
       <div className="footer__bar">
         Copyright © 2024 Kingsukh Guest House. All rights reserved.
       </div>
+      {isVisible && (
+        <div className="back-to-top" onClick={scrollToTop}>
+          <i className="fas fa-arrow-up"></i>
+        </div>
+      )}
     </footer>
   );
 };

@@ -306,6 +306,24 @@
   border: none;
 }
 
+.offer-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff1744;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
+  font-size: 14px;
+}
+
+.offer-tag span {
+  display: block;
+  font-size: 16px;
+}
+
 @media (max-width: 1024px) {
   .section4__container {
     padding: 50px 4rem;

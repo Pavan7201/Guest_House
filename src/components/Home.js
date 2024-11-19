@@ -100,7 +100,6 @@ const Home = () => {
   };
 
   const handleBookNowClick = () => {
-    scroll.scrollTo("rooms", { duration: 500 });
     setIsBookOpen(true);
   };
 

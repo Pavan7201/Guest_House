@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "../css/Bookings.css";
+import Book from "./Book";
 
 const Bookings = () => {
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
+  const [isBookOpen, setIsBookOpen] = useState(false);
 
   const handleWhatsAppBooking = () => {
     const message = `Check-in: ${checkInDate}, Check-out: ${checkOutDate}`;
@@ -11,6 +13,14 @@ const Bookings = () => {
       message
     )}`;
     window.open(whatsappLink, "_blank");
+  };
+
+  const handleBookNowClick = () => {
+    setIsBookOpen(true);
+  };
+
+  const closeBook = () => {
+    setIsBookOpen(false);
   };
 
   return (
@@ -36,13 +46,16 @@ const Bookings = () => {
             />
           </div>
           <div className="input__btn">
-            <button className="section2__btn">BOOK NOW</button>
+            <button className="section2__btn" onClick={handleBookNowClick}>
+              BOOK NOW
+            </button>
             <button className="whatsapp__btn" onClick={handleWhatsAppBooking}>
               <i className="fa-brands fa-whatsapp"></i>
             </button>
           </div>
         </div>
       </div>
+      <Book isOpen={isBookOpen} closeBook={closeBook} />
     </section>
   );
 };

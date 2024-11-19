@@ -93,7 +93,7 @@
 
 @media (max-width: 480px) {
   .container11 {
-    min-height: 100vh;
+    min-height: 50vh;
   }
 
   .section7__subheader h1 {

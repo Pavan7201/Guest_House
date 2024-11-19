@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/About.css";
 import about_image from "../assets/out.jpg";
+import Book from "./Book";
 
 const About = () => {
+  const [isBookOpen, setIsBookOpen] = useState(false);
+
   useEffect(() => {
     const imgElement = document.querySelector(".about__image img");
     const description = document.querySelector(".section3__description");
@@ -21,7 +24,7 @@ const About = () => {
       },
       { threshold: 0.5 }
     );
-    observer.observe(imgElement);
+    if (imgElement) observer.observe(imgElement);
 
     const fadeInObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -35,10 +38,10 @@ const About = () => {
       { threshold: 0.5 }
     );
 
-    fadeInObserver.observe(header);
-    fadeInObserver.observe(description);
+    if (header) fadeInObserver.observe(header);
+    if (description) fadeInObserver.observe(description);
     address.forEach((addr) => fadeInObserver.observe(addr));
-    fadeInObserver.observe(button);
+    if (button) fadeInObserver.observe(button);
 
     return () => {
       observer.disconnect();
@@ -46,8 +49,12 @@ const About = () => {
     };
   }, []);
 
-  const handleBookNowClick = (event) => {
-    event.preventDefault();
+  const handleBookNowClick = () => {
+    setIsBookOpen(true);
+  };
+
+  const closeBook = () => {
+    setIsBookOpen(false);
   };
 
   return (
@@ -84,11 +91,10 @@ const About = () => {
             <a href="tel:+919007062180">Contact us: +91 9007062180</a>
           </p>
           <div className="about__btn">
-            <button href="#" onClick={handleBookNowClick}>
-              BOOK NOW
-            </button>
+            <button onClick={handleBookNowClick}>BOOK NOW</button>
           </div>
         </div>
+        {isBookOpen && <Book isOpen={isBookOpen} closeBook={closeBook} />}
       </section>
     </>
   );

@@ -9,7 +9,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Rooms = () => {
   const sliderRef = useRef(null);
-
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [activeSlide, setActiveSlide] = useState(2);
 
@@ -44,11 +43,7 @@ const Rooms = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (entry.target === subheader) {
-              entry.target.style.animation = "fadeInUp 1.5s ease-out forwards";
-            } else if (entry.target === header) {
-              entry.target.style.animation = "fadeInUp 1.5s ease-out forwards";
-            }
+            entry.target.style.animation = "fadeInUp 1.5s ease-out forwards";
           }
         });
       },
@@ -70,6 +65,7 @@ const Rooms = () => {
         "Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.",
       price: "₹ 1000/night",
       link: "https://wa.link/at5ion",
+      offer: 20,
     },
     {
       id: 2,
@@ -79,6 +75,7 @@ const Rooms = () => {
         "Indulge in luxury and ample space in our Spacious Serenity Suite, where tranquility meets roomy elegance.",
       price: "₹ 1500/night",
       link: "https://wa.link/at5ion",
+      offer: 0,
     },
     {
       id: 3,
@@ -88,6 +85,7 @@ const Rooms = () => {
         "Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.",
       price: "₹ 1000/night",
       link: "https://wa.link/at5ion",
+      offer: 20,
     },
     {
       id: 4,
@@ -97,34 +95,36 @@ const Rooms = () => {
         "Indulge in luxury and ample space in our Spacious Serenity Suite, where tranquility meets roomy elegance.",
       price: "₹ 1500/night",
       link: "https://wa.link/at5ion",
+      offer: 0,
     },
     {
       id: 5,
       image: smallRoom,
-      title: "Relaxing Retreat Room",
+      title: "Cozy Haven Room",
       description:
-        "Unwind in our Relaxing Retreat Room, designed for the ultimate relaxation experience.",
-      price: "₹ 1200/night",
+        "Escape to comfort in our Cozy Haven Room, a snug retreat designed for intimate relaxation.",
+      price: "₹ 1000/night",
       link: "https://wa.link/at5ion",
+      offer: 20,
     },
   ];
 
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: rooms.length > 3,
+    infinite: rooms.length > 1,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: Math.min(rooms.length, 3),
     slidesToScroll: 1,
-    centerMode: true,
+    centerMode: rooms.length >= 3,
     centerPadding: "0",
     focusOnSelect: true,
-    initialSlide: 2,
+    initialSlide: Math.min(activeSlide, rooms.length - 1),
     afterChange: resetDescriptions,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: Math.min(rooms.length, 3),
           centerMode: true,
           centerPadding: "0",
         },
@@ -132,7 +132,7 @@ const Rooms = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(rooms.length, 2),
           centerMode: true,
           centerPadding: "0",
         },
@@ -140,7 +140,7 @@ const Rooms = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: Math.min(rooms.length, 1),
           centerMode: true,
           centerPadding: "0",
         },
@@ -162,6 +162,11 @@ const Rooms = () => {
         {rooms.map((room) => (
           <div className="room__card" key={room.id}>
             <div className="room__card__image">
+              {room.offer > 0 && (
+                <div className="offer-tag">
+                  <span>-{room.offer}%</span>
+                </div>
+              )}
               <div className="room__card__icons">
                 <span>
                   <i className="ri-heart-fill"></i>
@@ -181,7 +186,6 @@ const Rooms = () => {
                 {expandedDescriptions[room.id]
                   ? room.description
                   : `${room.description.slice(0, 50)}... `}
-
                 <span
                   className="toggle-text"
                   onClick={() => toggleDescription(room.id)}
@@ -199,14 +203,16 @@ const Rooms = () => {
           </div>
         ))}
       </Slider>
-      <div className="carousel-controls">
-        <button onClick={() => sliderRef.current.slickPrev()}>
-          <FaArrowLeft />
-        </button>
-        <button onClick={() => sliderRef.current.slickNext()}>
-          <FaArrowRight />
-        </button>
-      </div>
+      {rooms.length > 2 && (
+        <div className="carousel-controls">
+          <button onClick={() => sliderRef.current.slickPrev()}>
+            <FaArrowLeft />
+          </button>
+          <button onClick={() => sliderRef.current.slickNext()}>
+            <FaArrowRight />
+          </button>
+        </div>
+      )}
     </section>
   );
 };
